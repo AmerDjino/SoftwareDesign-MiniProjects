@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Domain and application code. No package or project references on purpose: persistence ignorance is enforced by the compiler. -->
+
+</Project>

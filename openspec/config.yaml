@@ -1,0 +1,34 @@
+schema: spec-driven
+
+context: |
+  Six independent .NET 9 mini-projects, one per software-design concept, each in its own folder with its own solution.
+  Spec capabilities by mini-project:
+    01-SolidPrinciples: checkout-pricing
+    02-DependencyInjection: appointment-reminders
+    03-RepositoryPattern: invoice-payments, invoice-storage
+    04-LayeredArchitecture: expense-tracking
+    05-CqrsBasics: warehouse-stock
+    06-SeparationOfConcerns: timesheet-report
+  A change normally touches one mini-project; name it in the proposal's Impact section.
+  Each mini-project's docs/SPEC.md is its original pre-code spec and stays unchanged; keep its README process log and docs/REFACTOR-NOTES.md up to date instead.
+  Work test-first: add or change the failing tests before the implementation, then refactor with the tests green.
+  Tests use xUnit Assert and hand-written test doubles (no mocking or assertion libraries) and are deterministic: no real clock, network or file system.
+  Parse and format numbers and dates with the invariant culture.
+  Do not commit or push; the repository owner does that.
+
+rules:
+  specs:
+    - Describe behaviour a caller can observe. Patterns, class names and project structure belong in design.md.
+  design:
+    - Name the design concept the change exercises (SOLID, dependency injection, repository, layering, CQRS, separation of concerns) and how it shapes the approach.
+  tasks:
+    - Start each task group with the failing test it needs and name that test in the task.
+    - End with a task that records the red, green and after-refactor `dotnet test` summary lines in the mini-project README process log.
+
+operations:
+  apply:
+    guidance:
+      - Run `dotnet test` for the touched mini-project after every task group and keep the build free of warnings.
+  archive:
+    guidance:
+      - Before archiving, confirm `openspec validate --strict` passes and every task is checked.

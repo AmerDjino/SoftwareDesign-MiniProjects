@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Expenses.Presentation\Expenses.Presentation.csproj" />
+    <ProjectReference Include="..\..\src\Expenses.Business\Expenses.Business.csproj" />
+    <ProjectReference Include="..\..\src\Expenses.DataAccess\Expenses.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>
